@@ -149,7 +149,7 @@ const Content =()=>
       <div className="mt-4 ... pr-0  sm:pr-8 ...">
             <div className=" grid grid-cols-1  sm:grid-cols-2 lg:grid-cols-3  space-around">
         {con.map(content =>(
-              <List  title={content['title']}   url = {content['url']} trans = {checkbox}/>
+              <List  title={content['title']} des={content['description']}  url = {content['url']} trans = {checkbox}/>
               
             ))}
             </div>
