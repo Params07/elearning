@@ -18,7 +18,7 @@ const lang = [
 const CreateCourse = ()=>
 {   const [selected, setSelected] = useState(lang[0])
     const [title,setTitle] = useState('');
-    const [description,setdescrip] = useState('');
+    
     const [url,setUrl] = useState('');
     const[YTurl,setYTurl] = useState('');
     const [error,SetError] = useState(false)
@@ -27,10 +27,7 @@ const CreateCourse = ()=>
     {
         setTitle(e.target.value);
     }
-    const updateDes = e =>
-    {
-        setdescrip(e.target.value);
-    }
+ 
     const updateUrl = e =>
     {   let x = e.target.value
         var p = /^(?:https?:\/\/)?(?:m\.|www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})(?:\S+)?$/;
@@ -57,7 +54,7 @@ const CreateCourse = ()=>
             const requestOptions = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title: title,des:description,lang:selected.name,url:url })
+                body: JSON.stringify({ title: title,lang:selected.name,url:url })
             };
           const res = await fetch('http://localhost:5000/course', requestOptions);
           const jsondata = await res.json();
@@ -148,9 +145,7 @@ const CreateCourse = ()=>
                                 </div>
                             </Listbox>
     </div>
-    <div className="pt-8 ...">
-                      <textarea  required onChange={updateDes}  value={description} rows="5" cols="32" className=" px-3 block border-2 border-green-300  focus:outline-none focus:border-green-600 focus-ring-2 focus-ring-green-500 rounded-lg leading-6" placeholder="enter the description"></textarea>
-                  </div>
+   
                   <div className="pt-8 ... ">
                       <input  required type="url" onChange={updateUrl}  value={url} className="py-2 w-72 px-3 block border-2 border-green-400  focus:outline-none focus:border-green-600 focus-ring-2 focus-ring-green-500 rounded-lg leading-6" placeholder="enter the URL"/>
                  
