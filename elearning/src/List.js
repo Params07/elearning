@@ -16,9 +16,7 @@ const List = ({title,des,url})=>
     <ReactPlayer  width="100%" height="100%"  url={url}  controls />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2 hover:underline uppercase ...">{title}</div>
-        <p className="pl-4 ... text-gray-500 text-base">
-         {des}
-        </p>
+        
       </div>
      
        
